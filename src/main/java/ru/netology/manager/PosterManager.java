@@ -2,10 +2,10 @@ package ru.netology.manager;
 
 import ru.netology.domain.Movie;
 
-import java.security.Provider;
+//import java.security.Provider;
 
 public class PosterManager {
-    private int initialLength = 5; // начальная длинна выводимого массива
+
     private int resultLength; //желаемая длинна массива
     private Movie[] posters = new Movie[0];
 
@@ -33,7 +33,7 @@ public class PosterManager {
 
 
     public Movie[] findLast() {
-
+        int initialLength=5; // начальная длинна выводимого массива
         Movie[] tmp = findAll();
         int length = tmp.length;
 
