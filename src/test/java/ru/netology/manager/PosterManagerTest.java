@@ -40,7 +40,7 @@ public class PosterManagerTest {
     
 
     @Test
-    public void givenLength() {
+    public void displayingPostersByDefault() {
 
 
         Movie[] expected = {item7, item6, item5, item4, item3};
@@ -51,7 +51,7 @@ public class PosterManagerTest {
     }
 
     @Test
-    public void findLastTest() {
+    public void outputOfPostersBelowLimit() {
         PosterManager repo = new PosterManager(4);
         repo.save(item1);
         repo.save(item2);
@@ -70,8 +70,8 @@ public class PosterManagerTest {
     }
 
     @Test
-    public void minuszero() {
-        PosterManager repo = new PosterManager(0);
+    public void outputOfPostersEqualToTheLimit() {
+        PosterManager repo = new PosterManager(5);
         repo.save(item1);
         repo.save(item2);
         repo.save(item3);
@@ -88,7 +88,7 @@ public class PosterManagerTest {
 
     }
     @Test
-    public void big() {
+    public void withdrawalOfPostersOverLimit() {
         PosterManager repo = new PosterManager(6);
         repo.save(item1);
         repo.save(item2);
