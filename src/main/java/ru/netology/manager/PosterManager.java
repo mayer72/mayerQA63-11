@@ -2,22 +2,17 @@ package ru.netology.manager;
 
 import ru.netology.domain.Movie;
 
-//import java.security.Provider;
-
 public class PosterManager {
-
     private int limit;
     private Movie[] posters = new Movie[0];
 
     public PosterManager(int limit) {
-
         this.limit = limit;
     }
 
     public PosterManager() {
 
     }
-
 
     public void save(Movie poster) {
         Movie[] tmp = new Movie[posters.length + 1];
@@ -50,6 +45,4 @@ public class PosterManager {
         }
         return result;
     }
-
-
 }
