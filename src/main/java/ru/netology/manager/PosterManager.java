@@ -6,12 +6,13 @@ import ru.netology.domain.Movie;
 
 public class PosterManager {
 
-    private int resultLength; // лимит задаётся конструктором
-    private int initialLength = 5; // длинна массива по умолчанию
+    //  private int resultLength; // лимит задаётся конструктором
+    private int limit;
     private Movie[] posters = new Movie[0];
 
-    public PosterManager(int resultLength) {
-        this.resultLength = resultLength;
+    public PosterManager(int limit) {
+
+        this.limit = limit;
     }
 
     public PosterManager() {
@@ -34,18 +35,15 @@ public class PosterManager {
 
     public Movie[] findLast() {
 
+        int resultLength;
         Movie[] tmp = findAll();
-        int length = tmp.length;
 
-        if (resultLength <= 0) {
-            if (initialLength < length) {
-                length = initialLength;
-            }
+        if (limit == 0) {
+            resultLength = 5;
         } else {
-            if (length > resultLength) length = resultLength;
-
+            resultLength = limit;
         }
-        Movie[] result = new Movie[length];
+        Movie[] result = new Movie[resultLength];
 
         for (int i = 0; i < result.length; i++) {
             int index = tmp.length - i - 1;
