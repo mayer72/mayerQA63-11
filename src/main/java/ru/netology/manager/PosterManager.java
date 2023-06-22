@@ -32,7 +32,6 @@ public class PosterManager {
         return posters;
     }
 
-
     public Movie[] findLast() {
 
         Movie[] tmp = findAll();
