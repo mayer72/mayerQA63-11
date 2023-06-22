@@ -6,7 +6,6 @@ import ru.netology.domain.Movie;
 
 public class PosterManager {
 
-    //  private int resultLength; // лимит задаётся конструктором
     private int limit;
     private Movie[] posters = new Movie[0];
 
