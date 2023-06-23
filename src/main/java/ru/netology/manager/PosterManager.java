@@ -11,7 +11,7 @@ public class PosterManager {
     }
 
     public PosterManager() {
-
+        limit = 5;
     }
 
     public void save(Movie poster) {
@@ -32,8 +32,8 @@ public class PosterManager {
         int resultLength;
         Movie[] tmp = findAll();
 
-        if (limit == 0) {
-            resultLength = 5;
+        if (limit >= tmp.length) {
+            resultLength = tmp.length;
         } else {
             resultLength = limit;
         }

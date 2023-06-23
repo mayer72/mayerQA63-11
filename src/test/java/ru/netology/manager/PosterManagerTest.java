@@ -37,7 +37,7 @@ public class PosterManagerTest {
         Assertions.assertArrayEquals(expected, actual);
 
     }
-    
+
 
     @Test
     public void displayingPostersByDefault() {
@@ -87,6 +87,7 @@ public class PosterManagerTest {
         Assertions.assertArrayEquals(expected, actual);
 
     }
+
     @Test
     public void withdrawalOfPostersOverLimit() {
         PosterManager repo = new PosterManager(6);
@@ -99,7 +100,40 @@ public class PosterManagerTest {
         repo.save(item7);
 
 
-        Movie[] expected = {item7, item6, item5, item4, item3,item2};
+        Movie[] expected = {item7, item6, item5, item4, item3, item2};
+        Movie[] actual = repo.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void filmsLessThanTheLimit() {
+        PosterManager repo = new PosterManager(6);
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
+
+
+        Movie[] expected = {item3, item2, item1};
+        Movie[] actual = repo.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void moviesEqualToTheLimit() {
+        PosterManager repo = new PosterManager(7);
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
+        repo.save(item4);
+        repo.save(item5);
+        repo.save(item6);
+        repo.save(item7);
+
+
+        Movie[] expected = {item7, item6, item5, item4, item3, item2, item1};
         Movie[] actual = repo.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
